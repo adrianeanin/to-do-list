@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon" />
+    <script src="./js/index.js" defer></script>
+    <script src="./js/app.js" defer></script>
+    <title>Todo List</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="header">
+        <div class="header__title">Todo</div>
+        <div class="header__toggle-icon" id="toggle"></div>
+      </div>
+    </header>
+
+    <main>
+      <div class="form container">
+        <form id="todo-form">
+          <div class="form">
+            <div class="form-checkbox-container">
+              <div class="form__check"></div>
+
+              <input
+                class="form__input"
+                type="text"
+                id="todo-title"
+                placeholder="Create a new todo..."
+              />
+            </div>
+
+            <div class="form-date-container">
+              <input type="date" id="todo-due-date" class="form__date" />
+            </div>
+          </div>
+        </form>
+
+        <ul id="todo-list" class="list">
+          <div class="list__item">
+            <div class="form__check"></div>
+            <li class="list__task">Pray</li>
+            <div class="list__cancel">
+              <img src="images/icon-cross.svg" alt="cancel-icon" />
+            </div>
+          </div>
+
+          <div class="list__item">
+            <div class="form__check"></div>
+            <li class="list__task">Read</li>
+            <div class="list__cancel">
+              <img src="images/icon-cross.svg" alt="cancel-icon" />
+            </div>
+          </div>
+
+          <div class="list__item">
+            <div class="form__check"></div>
+            <li class="list__task">Eat</li>
+            <div class="list__cancel">
+              <img src="images/icon-cross.svg" alt="cancel-icon" />
+            </div>
+          </div>
+        </ul>
+
+        <div class="states">
+          <div class="item-state">
+            <div class="items-left">4 items left</div>
+            <a href="#" class="clear-completed">Clear Completed</a>
+          </div>
+
+          <div class="list-state">
+            <a href="#" class="list-all">All</a>
+            <a href="#" class="list-active">Active</a>
+            <a href="#" class="list-complete">Complete</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Drag and drop to reorder list</p>
+    </footer>
+  </body>
+</html>

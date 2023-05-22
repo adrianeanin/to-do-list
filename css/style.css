@@ -1,0 +1,257 @@
+@import url("normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+:root {
+  --background-color: #ffffff;
+  --body-color: #fff;
+  --text-color: #494c6b;
+  --link-color: #9495a5;
+  --border-color: #e3e4f1;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  overflow-x: hidden;
+  background-color: var(--body-color);
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+header {
+  background-image: url("../images/bg-mobile-light.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 170px;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.header__title {
+  text-transform: uppercase;
+  letter-spacing: 5.5px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 44px;
+}
+
+.header__toggle-icon {
+  background-image: url("../images/icon-moon.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 30px;
+  height: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  transform: translateY(-50px);
+}
+
+.form-checkbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--background-color);
+  box-shadow: 0px 25px 50px 7px rgba(194, 195, 214, 0.5);
+  border-radius: 5px;
+  gap: 20px;
+}
+
+.form__check {
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.form__check:hover {
+  border-image: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  border-image-slice: 1;
+  cursor: pointer;
+}
+
+.form__input {
+  background-color: var(--background-color);
+  border-radius: 5px;
+  border: none;
+}
+
+.form__input::placeholder {
+  color: #9495a5;
+}
+
+.form__date {
+  padding: 20px;
+  background-color: var(--background-color);
+  box-shadow: 0px 25px 50px 7px rgba(194, 195, 214, 0.5);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: none;
+}
+
+.form-date-container {
+  position: relative;
+}
+
+.form-date-container::after {
+  content: "Date";
+  position: absolute;
+  color: #fff;
+  font-weight: bold;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+}
+
+/*list styling*/
+
+.list,
+.states {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 2em;
+  transform: translateY(-50px);
+  background-color: var(--background-color);
+  box-shadow: 0px 25px 50px 7px rgba(194, 195, 214, 0.5);
+  border-radius: 5px;
+  width: 250px;
+}
+
+.items-left {
+  color: var(--link-color);
+}
+
+.clear-completed {
+  font-weight: 400;
+}
+
+.list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+  border: 1px solid var(--border-color);
+}
+
+.list__task {
+  color: var(--text-color);
+}
+
+.list__task:hover {
+  cursor: pointer;
+}
+
+.states {
+  padding: 0.5em 2em;
+  gap: 5px;
+}
+
+.item-state {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+}
+
+.list-state {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-50px);
+  color: var(--link-color);
+  font-weight: 400;
+}
+
+/* Dark Mode*/
+
+body.dark-mode {
+  --background-color: #25273d;
+  --text-color: #ffffff;
+  --link-color: #767992;
+  --border-color: #393a4b;
+  background-color: #000000;
+}
+
+body.dark-mode header {
+  background-image: url("../images/bg-mobile-dark.jpg");
+}
+
+body.dark-mode .header__toggle-icon {
+  background-image: url("../images/icon-sun.svg");
+}
+
+.form__input::placeholder {
+  color: var(--link-color);
+}
+
+body.dark-mode .form-checkbox-container,
+body.dark-mode .form__date,
+body.dark-mode .list,
+body.dark-mode .states {
+  box-shadow: none;
+}
+
+body.dark-mode .form__input::placeholder {
+  color: #767992;
+}
