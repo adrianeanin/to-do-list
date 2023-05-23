@@ -1,5 +1,5 @@
 - Populate the form check div with tick svg onclick
-- change moon to sun and vice versa for various modes
+- Clear Completed alignment issue
 - find way to make active state ie, all, active, complete blue
 
 - create header images in photoshop
