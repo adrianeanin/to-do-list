@@ -250,6 +250,10 @@ header {
   width: 100%;
 }
 
+.active-link {
+  color: #3a7cfd;
+}
+
 footer {
   display: flex;
   justify-content: center;

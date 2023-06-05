@@ -2,6 +2,11 @@ const todoForm = document.querySelector("#todo-form");
 const todoName = document.querySelector("#todo-name");
 const todoDueDate = document.querySelector("#todo-due-date");
 const todoListElement = document.querySelector("#todo-list");
+const itemsLeft = document.querySelector(".items-left");
+const clearCompleted = document.querySelector(".clear-completed");
+const showActive = document.querySelector(".list-active");
+const showAll = document.querySelector(".list-all");
+const showCompleted = document.querySelector(".list-complete");
 
 const createItem = (title, dueDate) => {
   return {
@@ -26,11 +31,13 @@ const addTodoItem = (event) => {
   const todoItem = createItem(title, dueDate);
   todoList.push(todoItem);
   renderTodoList();
+  updateItemsLeft();
 };
 
-const renderTodoList = () => {
+const renderTodoList = (items) => {
+  const renderItems = items || todoList;
   todoListElement.innerHTML = "";
-  todoList.forEach((todoItem, index) => {
+  renderItems.forEach((todoItem, index) => {
     const todoElement = document.createElement("div");
     todoElement.classList.add("list__item");
     todoElement.innerHTML = `
@@ -60,21 +67,68 @@ const renderTodoList = () => {
     checkbox.addEventListener("click", () => {
       todoItem.toggleCompletion();
       renderTodoList();
+      updateItemsLeft();
     });
 
     const deleteButton = todoElement.querySelector(".list__cancel");
     deleteButton.addEventListener("click", () => {
       todoList.splice(index, 1);
       renderTodoList();
+      updateItemsLeft();
     });
     todoListElement.appendChild(todoElement);
   });
+
+  updateItemsLeft();
 };
 
-// Initialize the to-do list
+const updateItemsLeft = () => {
+  const incompleteItems = todoList.filter((todoItem) => !todoItem.isCompleted);
+  const count = incompleteItems.length;
+  itemsLeft.innerText = `${count} item${count !== 1 ? "s" : ""} left`;
+};
+
+const clearCompletedItems = () => {
+  const completedItems = todoList.filter((todoItem) => todoItem.isCompleted);
+  completedItems.forEach((completedItem) => {
+    const index = todoList.indexOf(completedItem);
+    todoList.splice(index, 1);
+  });
+  renderTodoList();
+  updateItemsLeft();
+};
+
+const showAllItems = (event) => {
+  event.preventDefault();
+  renderTodoList();
+
+  showActive.classList.remove("active-link");
+  showAll.classList.add("active-link");
+  showCompleted.classList.remove("active-link");
+};
+
+const showActiveItems = (event) => {
+  event.preventDefault();
+  const activeItems = todoList.filter((todoItem) => !todoItem.isCompleted);
+  renderTodoList(activeItems);
+
+  showActive.classList.add("active-link");
+  showAll.classList.remove("active-link");
+  showCompleted.classList.remove("active-link");
+};
+
+const showCompletedItems = (event) => {
+  event.preventDefault();
+  const completedItems = todoList.filter((todoItem) => todoItem.isCompleted);
+  renderTodoList(completedItems);
+
+  showActive.classList.remove("active-link");
+  showAll.classList.remove("active-link");
+  showCompleted.classList.add("active-link");
+};
+
 const initializeTodoList = () => {
   const todoItem1 = createItem("Buy groceries", "2023-05-07");
-
   todoList.push(todoItem1);
   renderTodoList();
 };
@@ -87,3 +141,7 @@ function handleKeyPress(event) {
 }
 
 initializeTodoList();
+
+showActive.addEventListener("click", showActiveItems);
+showAll.addEventListener("click", showAllItems);
+showCompleted.addEventListener("click", showCompletedItems);
