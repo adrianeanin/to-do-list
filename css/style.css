@@ -71,6 +71,10 @@ header {
   height: 30px;
 }
 
+.header__toggle-icon:hover {
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -99,13 +103,19 @@ header {
 }
 
 .form__check {
-  border: 2px solid var(--border-color);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  display: none;
 }
 
-.form__check:hover {
+.form__check + label {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+}
+
+.form__check:hover + label {
   border-image: linear-gradient(
     to right,
     hsl(192, 100%, 67%),
@@ -113,6 +123,15 @@ header {
   );
   border-image-slice: 1;
   cursor: pointer;
+}
+
+.form__check:checked + label {
+  background: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  border: 2px solid var(--border-color);
 }
 
 .form__input {
@@ -152,6 +171,17 @@ header {
 
 /*list styling*/
 
+.list__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+  border: 1px solid var(--border-color);
+}
+
 .list,
 .states {
   display: flex;
@@ -183,18 +213,14 @@ header {
   transform: translatex(-55px);
 }
 
-.list__item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 5px;
-  padding: 20px;
-  width: 100%;
-  border: 1px solid var(--border-color);
+.list__task,
+.due-date {
+  color: var(--text-color);
 }
 
-.list__task {
-  color: var(--text-color);
+.list__task.completed {
+  text-decoration: line-through;
+  color: var(--link-color);
 }
 
 .list__task:hover {
@@ -265,6 +291,10 @@ body.dark-mode .states {
 body.dark-mode .form__input::placeholder {
   color: #767992;
 }
+body.dark-mode .form__input,
+.form__date {
+  color: var(--text-color);
+}
 
 @media screen and (min-width: 1440px) {
   body.dark-mode header {
@@ -293,6 +323,17 @@ body.dark-mode .form__input::placeholder {
 
   .form-date-container::after {
     display: none;
+  }
+
+  .list__item {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    border: 1px solid var(--border-color);
   }
 
   .list,
