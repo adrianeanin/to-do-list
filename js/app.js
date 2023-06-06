@@ -58,6 +58,53 @@ const renderTodoList = (items) => {
     </div>
       `;
 
+    //drag and drop functionality
+
+    todoElement.draggable = true;
+
+    todoElement.addEventListener("dragstart", () => {
+      todoElement.classList.add("dragging");
+    });
+
+    todoElement.addEventListener("dragend", () => {
+      todoElement.classList.remove("dragging");
+    });
+
+    todoListElement.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      const afterElement = getDragAfterElement(todoListElement, event.clientY);
+
+      const draggable = document.querySelector(".dragging");
+      if (afterElement == null) {
+        todoListElement.appendChild(draggable);
+      } else {
+        todoListElement.insertBefore(draggable, afterElement);
+      }
+    });
+
+    const getDragAfterElement = (todoListElement, y) => {
+      const draggableElements = [
+        ...todoListElement.querySelectorAll(".list__item:not(.dragging)"),
+      ];
+
+      return draggableElements.reduce(
+        (closest, child) => {
+          const box = child.getBoundingClientRect();
+          const offset = y - box.top - box.height / 2;
+          if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+          } else {
+            return closest;
+          }
+        },
+        {
+          offset: Number.NEGATIVE_INFINITY,
+        }
+      ).element;
+    };
+
+    // delete and check functionality
+
     const taskElement = todoElement.querySelector(".list__task");
     if (todoItem.isCompleted) {
       taskElement.classList.add("completed");
@@ -142,6 +189,8 @@ function handleKeyPress(event) {
 
 initializeTodoList();
 
+todoName.addEventListener("keypress", handleKeyPress);
 showActive.addEventListener("click", showActiveItems);
 showAll.addEventListener("click", showAllItems);
 showCompleted.addEventListener("click", showCompletedItems);
+clearCompleted.addEventListener("click", clearCompletedItems);

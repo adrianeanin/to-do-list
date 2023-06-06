@@ -1,7 +1,8 @@
-const toggleButton = document.getElementById("toggle");
+//dark mode
+
+const toggleButton = document.querySelector("#toggle");
 const body = document.body;
 
-// Function to check the user's preferred color scheme
 function setInitialMode() {
   const prefersDarkMode = window.matchMedia(
     "(prefers-color-scheme: dark)"

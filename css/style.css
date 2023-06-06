@@ -182,6 +182,15 @@ header {
   border: 1px solid var(--border-color);
 }
 
+.list__item.dragging {
+  opacity: 0.75;
+  background-color: #3a7cfd;
+}
+
+.list__cancel:hover {
+  cursor: pointer;
+}
+
 .list,
 .states {
   display: flex;
@@ -338,6 +347,7 @@ body.dark-mode .form__input,
     padding: 20px;
     width: 100%;
     border: 1px solid var(--border-color);
+    cursor: move;
   }
 
   .list,
