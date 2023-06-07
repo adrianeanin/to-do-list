@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon" />
-    <script src="./js/app.js" defer></script>
+    <script src="./js/app.js" type="module"></script>
+    <script src="./js/localStorage.js" type="module"></script>
     <script src="./js/darkMode.js" defer></script>
 
     <title>Todo List</title>
@@ -41,17 +42,7 @@
           </div>
         </form>
 
-        <ul id="todo-list" class="list">
-          <!-- <div class="list__item">
-            <input type="checkbox" class="form__check" id="todo-checkbox-1" />
-            <label for="todo-checkbox-1"></label>
-            <li class="list__task">groceries</li>
-            <div class="due-date">2023-05-07</div>
-            <div class="list__cancel" data-index="0">
-              <img src="images/icon-cross.svg" alt="cancel-icon" />
-            </div>
-          </div> -->
-        </ul>
+        <ul id="todo-list" class="list"></ul>
 
         <div class="states">
           <div class="items-left"></div>

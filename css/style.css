@@ -116,12 +116,6 @@ header {
 }
 
 .form__check:hover + label {
-  border-image: linear-gradient(
-    to right,
-    hsl(192, 100%, 67%),
-    hsl(280, 87%, 65%)
-  );
-  border-image-slice: 1;
   cursor: pointer;
 }
 
@@ -131,7 +125,7 @@ header {
     hsl(192, 100%, 67%),
     hsl(280, 87%, 65%)
   );
-  border: 2px solid var(--border-color);
+  /* border: 2px solid var(--border-color); */
 }
 
 .form__input {
@@ -227,8 +221,10 @@ header {
   color: var(--text-color);
 }
 
-.list__task.completed {
+.list__task.completed,
+.due-date.completed {
   text-decoration: line-through;
+  transition: text-decoration 4s ease;
   color: var(--link-color);
 }
 

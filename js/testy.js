@@ -115,10 +115,8 @@ const renderTodoList = (items) => {
     // delete and checkbox toggle functionality
 
     const taskElement = todoElement.querySelector(".list__task");
-    const dueDateElement = todoElement.querySelector(".due-date");
     if (todoItem.isCompleted) {
       taskElement.classList.add("completed");
-      dueDateElement.classList.add("completed");
     }
 
     const checkbox = todoElement.querySelector(".form__check");
@@ -205,6 +203,8 @@ clearCompleted.addEventListener("click", clearCompletedItems);
 document.addEventListener("DOMContentLoaded", () => {
   todoList = getTodoListFromLocalStorage() || [];
   renderTodoList();
+  // Save the todoList to local storage whenever it is modified
+  saveTodoListToLocalStorage(todoList);
 });
 
 export { createItem };
