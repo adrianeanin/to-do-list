@@ -62,8 +62,8 @@ The Todo List App is built using HTML, CSS, and JavaScript. It utilizes local st
 
 ## Author
 
-- Website - [Adrian Anin](https://adriananin.github.io/anin-blog-odyssey/)
-- Frontend Mentor - [@adriananin](https://www.frontendmentor.io/profile/adriananin)
+- Website - [Adrian Anin](adriananin.com)
+
 
 ## Conclusion
 
