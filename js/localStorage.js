@@ -12,9 +12,6 @@ const getTodoListFromLocalStorage = () => {
     return parsedList.map((item) => {
       const newItem = createItem(item.title, item.dueDate);
       newItem.isCompleted = item.isCompleted;
-      // newItem.toggleCompletion = function () {
-      //   this.isCompleted = !this.isCompleted;
-      // };
       newItem.toggleCompletion = createItem().toggleCompletion;
       return newItem;
     });

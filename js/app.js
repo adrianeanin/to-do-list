@@ -3,7 +3,6 @@ import {
   getTodoListFromLocalStorage,
 } from "./localStorage.js";
 
-const todoForm = document.querySelector("#todo-form");
 const todoName = document.querySelector("#todo-name");
 const todoDueDate = document.querySelector("#todo-due-date");
 const todoListElement = document.querySelector("#todo-list");
@@ -22,10 +21,6 @@ const createItem = (title, dueDate) => {
       this.isCompleted = !this.isCompleted;
     },
   };
-
-  // item.toggleCompletion = function () {
-  //   this.isCompleted = !this.isCompleted;
-  // };
 
   return item;
 };
