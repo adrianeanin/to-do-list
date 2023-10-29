@@ -39,7 +39,7 @@ a:hover {
 }
 
 header {
-  background-image: url("../images/bg-mobile-light.jpg");
+  background-image: url("../images/bg-light.png");
   background-position: center;
   background-size: cover;
   height: 170px;
@@ -120,12 +120,7 @@ header {
 }
 
 .form__check:checked + label {
-  background: linear-gradient(
-    to right,
-    hsl(192, 100%, 67%),
-    hsl(280, 87%, 65%)
-  );
-  /* border: 2px solid var(--border-color); */
+  background: linear-gradient(to right, hsl(358, 85%, 68%), hsl(41, 98%, 49%));
 }
 
 .form__input {
@@ -178,7 +173,7 @@ header {
 
 .list__item.dragging {
   opacity: 0.75;
-  background-color: #3a7cfd;
+  background-color: #f3696e;
 }
 
 .list__cancel:hover {
@@ -224,7 +219,6 @@ header {
 .list__task.completed,
 .due-date.completed {
   text-decoration: line-through;
-  transition: text-decoration 4s ease;
   color: var(--link-color);
 }
 
@@ -256,7 +250,7 @@ header {
 }
 
 .active-link {
-  color: #3a7cfd;
+  color: #f3696e;
 }
 
 footer {
@@ -279,7 +273,7 @@ body.dark-mode {
 }
 
 body.dark-mode header {
-  background-image: url("../images/bg-mobile-dark.jpg");
+  background-image: url("../images/bg-dark.png");
 }
 
 body.dark-mode .header__toggle-icon {
@@ -307,11 +301,11 @@ body.dark-mode .form__input,
 
 @media screen and (min-width: 1440px) {
   body.dark-mode header {
-    background-image: url("../images/bg-desktop-dark.jpg");
+    /* background-image: url("../images/bg-desktop-dark.png"); */
   }
 
   header {
-    background-image: url("../images/bg-desktop-light.jpg");
+    /* background-image: url("../images/bg-desktop-light.png"); */
     height: 200px;
   }
 

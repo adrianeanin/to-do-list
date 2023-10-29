@@ -18,11 +18,14 @@ const createItem = (title, dueDate) => {
     title,
     dueDate,
     isCompleted: false,
+    toggleCompletion: function () {
+      this.isCompleted = !this.isCompleted;
+    },
   };
 
-  item.toggleCompletion = function () {
-    this.isCompleted = !this.isCompleted;
-  };
+  // item.toggleCompletion = function () {
+  //   this.isCompleted = !this.isCompleted;
+  // };
 
   return item;
 };
